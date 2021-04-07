@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_res_partner_person_type,res.partner.person_type,model_res_partner_person_type,base.group_user,1,1,1,1
+access_crm_lead_email_status,crm.lead.email_status,model_crm_lead_email_status,base.group_user,1,1,1,1
+access_crm_lead_primary_service,crm.lead.primary_service,model_crm_lead_primary_service,base.group_user,1,1,1,1
+access_crm_lead_program_type,crm.lead.program_type,model_crm_lead_program_type,base.group_user,1,1,1,1
+access_crm_lead_program_frequency,crm.lead.program_frequency,model_crm_lead_program_frequency,base.group_user,1,1,1,1
+access_crm_lead_current_captioning_method,crm.lead.current_captioning_method,model_crm_lead_current_captioning_method,base.group_user,1,1,1,1
+access_crm_lead_editing_system,crm.lead.editing_system,model_crm_lead_editing_system,base.group_user,1,1,1,1
+access_crm_lead_native_format,crm.lead.native_format,model_crm_lead_native_format,base.group_user,1,1,1,1

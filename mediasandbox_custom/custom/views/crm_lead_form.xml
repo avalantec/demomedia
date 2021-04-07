@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+ <!-- Inherit Form view -->
+ <record id="crm_lead_inherit" model="ir.ui.view">
+   <field name="name">crm_lead.inherit_9999</field>
+   <field name="model">crm.lead</field>
+   <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+   <field name="priority">98</field>
+   <field name="arch" type="xml">
+
+  <xpath expr="//group[@name='opportunity_partner']/div[2]" position="inside">
+    <span attrs="{'invisible': [('phone_ext', '=', False )]}" >Ext.</span>
+    <field name="phone_ext" placeholder="Extension"/>
+  </xpath>
+  
+  <xpath expr="//group[@name='lead_info']/div[3]" position="inside">
+    <span attrs="{'invisible': [('phone_ext', '=', False )]}" >Ext.</span>
+    <field name="phone_ext" placeholder="Extension"/>
+  </xpath>
+
+  <xpath expr="//group[@name='lead_info']/field[@name='is_blacklisted']" position="before">
+    <field name="first_name" class="oe_edit_only"/>
+    <field name="last_name" class="oe_edit_only"/>
+  </xpath>
+
+  
+  <xpath expr="//group[@name='opportunity_partner']" position="inside">
+ 
+    <field name="fax" widget="phone" attrs="{'invisible': [ ('fax', '=', False ) ]}" class="oe_read_only"/>
+    <field name="fax" widget="phone" class="oe_edit_only"/>
+  </xpath>
+  
+  
+  
+  <xpath expr="//group[@name='lead_info']/label[4]" position="before">
+
+    <field name="fax" widget="phone" attrs="{'invisible': [ ('fax', '=', False ) ]}" class="oe_read_only"/>
+    <field name="fax" widget="phone" class="oe_edit_only"/>
+  </xpath>
+  
+  <xpath expr="//sheet/notebook/page[last()]" position="after">
+  <page string="Caption Labs" name="caption_labs">
+    <group>
+      <group>
+        <h3>TV Show Information</h3>
+        <field name="show_name" />
+        <field name="program_type_id" />
+        <field name="program_frequency_id" />
+        <field name="current_captioning_method_id" />
+      </group>
+      <group>
+        <div ><h3>Production</h3></div>
+        <field string="Editing System" name="editing_system_id" />
+        <field name="native_format_id" />
+      </group>
+      <group>
+        <h3>FCC Exemption</h3>
+        <field name="fcc_exemption_file" string="File #"/>
+      </group>
+    </group>
+  </page>
+  <page string="Imported Data" name="imported_data">
+    <group>
+      <group>
+        <h3><field name="imp_data_title" placeholder="Define System Imported" ></field></h3>
+        <field name="email_status" ></field>
+        <field name="person_type" ></field>
+        <label for="phone2" class="oe_inline"/>
+        <div class="o_row o_row_readonly">
+          <field name="phone2" widget="phone"/>
+          <span  attrs="{'invisible': [('phone2_ext', '=', False )]}"  >Ext.</span>
+          <field name="phone2_ext" placeholder="Extension"/>
+        </div>
+      </group>
+    </group>
+  </page>
+
+</xpath>
+
+  <xpath expr="//group[@name='lead_info']" position="after">
+    <group>
+      <!-- <field name="person_type" /> -->
+      <field name="industry_id" />
+      <field name="primary_service" />
+    </group>  
+  </xpath>
+
+  <!-- 1613968113 -->
+  <xpath expr="//field[@name='email_cc']" position="replace">
+    <field name="email_cc"/>
+  </xpath>
+
+  </field>
+</record>
+ 
+</odoo>

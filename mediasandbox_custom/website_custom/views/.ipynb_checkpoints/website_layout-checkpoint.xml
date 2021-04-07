@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<odoo>
+    <!--
+    <data inherit_id="website.layout" active="False">
+        <xpath expr="//footer" position="before">
+            <t t-set="no_footer" t-value="True"/>
+        </xpath>
+    </data>
+    -->
+    
+        <!-- Inherit Form view -->
+    <record id="invoice_inherit" model="ir.ui.view">
+      <field name="name">invoice.form</field>
+      <field name="model">account.invoice</field>
+      <field name="inherit_id" ref="account.invoice_form"/>
+      <field name="arch" type="xml">
+          <xpath expr="//tree/field[@name='name']" position="after">
+              <field name="tipo"  attrs="{'readonly':[('product_id','!=',False)]}"/>
+              <field name="tipo"  invisible="1"/>
+          </xpath>
+      </field>
+    </record>
+
+</odoo>

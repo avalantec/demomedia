@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <!-- 1613421836 -->
+        <record id="s_snipped_options_no_footer" model="ir.ui.view">
+           <field name="name">s_snipped_options_no_footer</field>
+            <field name="key">website.snipped_options_no_footer</field>
+            <field name="inherit_id" ref="website.snippet_options"/>
+            <field name="priority">98</field>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@data-js='OptionsTab']/we-checkbox" position="after">
+                    <we-checkbox string="Show Footer" 
+                        data-customize-website-views="website.option_layout_hide_footer|" 
+                        data-reload="/"/>
+                    <we-checkbox string="Login Format Basic"
+                        data-customize-website-views="website.login_layout|"
+                        data-reload="/"/>
+                </xpath>    
+                
+            </field>
+        </record>
+
+    </data>           
+</odoo>

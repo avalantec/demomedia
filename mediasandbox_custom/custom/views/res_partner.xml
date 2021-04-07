@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+ <!-- Inherit Form view -->
+ <record id="base_view_partner_form_inherit" model="ir.ui.view">
+     <field name="name">res parther custom crm lead fields</field>
+     <field name="model">res.partner</field>
+     <field name="inherit_id" ref="base.view_partner_form"/>
+     <field name="priority">98</field>
+     <field name="arch" type="xml">
+      <xpath expr="//field[@name='name']" position="replace">
+       <field name="name" class="oe_read_only"/>
+       <field name="name" default_focus="1" placeholder="Name"
+         attrs="{
+           'required' : [('type', '=', 'contact')],
+           'invisible' : [('company_type', '=', 'person')],
+         }"
+         class="oe_edit_only"
+       />
+       <field name="first_name" placeholder="First Name" widget="field_partner_autocomplete"
+         default_focus="1"
+         attrs="{ 'invisible' : [('company_type', '=', 'company')]}"
+         class="oe_edit_only"
+       />
+       <field name="last_name" placeholder="Last Name" widget="field_partner_autocomplete"
+         attrs="{'invisible' : [('company_type', '=', 'company')],}"
+         class="oe_edit_only"
+       />
+      </xpath>
+         
+      <xpath expr="//group/group[last()]" position="after">
+       <group>
+        <field name="industry_id" string="Organization Type"/>
+        <field name="primary_service"/>
+       </group>  
+      </xpath>
+      
+     </field>
+ </record>    
+    
+ <record id="res_partner_view_sms_form_inherit_lead_fields" model="ir.ui.view">
+   <field name="name">res_partner_view_SMS_form inherit lead fields</field>
+   <field name="model">res.partner</field>
+   <field name="inherit_id" ref="sms.res_partner_view_form"/>
+   <field name="priority">98</field>
+   <field name="arch" type="xml">
+       
+      <xpath expr="//field[@name='phone']" position="after">
+        <field name="phone_ext" placeholder="Extension"/>
+      </xpath>
+
+      <xpath expr="//label[@for='mobile']" position="before">
+          <label for="phone2" class="oe_inline"/>
+          <div class="o_row o_row_readonly">
+              <field name="phone2" widget="phone"/>
+              <field name="phone2_ext" placeholder="Extension"/>
+          </div>
+          <label for="fax" class="oe_inline"/>
+          <div class="o_row o_row_readonly">
+            <field name="fax" widget="phone"/>
+          </div>
+      </xpath>
+   </field>
+ </record>
+</odoo>

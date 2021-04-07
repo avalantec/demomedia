@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <!-- 1613421836 -->
+        <record id="option_layout_hide_footer" model="ir.ui.view">
+           <field name="name">option_layout_hide_footer</field>
+            <field name="key">website.option_layout_hide_footer</field>
+            <field name="inherit_id" ref="website.layout"/>
+            <field name="priority">98</field>
+            <field name="active">False</field>
+            <field name="arch" type="xml">
+                <xpath expr="//footer" position="before">
+                    <t t-set="no_footer" t-value="True"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>           
+</odoo>

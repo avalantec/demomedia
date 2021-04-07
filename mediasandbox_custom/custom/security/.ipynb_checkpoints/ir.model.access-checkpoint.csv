@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_res_partner_person_type, res.partner.person_type, model_res_partner_person_type,base.group_user,1,1,1,1
+access_crm_lead_email_status,Access crm.lead.email_status, crm.lead.email_status, base.group_user,1,1,1,1

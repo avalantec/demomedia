@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+     <!-- Inherit Form view -->
+     <record id="base_view_partner_form_geo_inherit" model="ir.ui.view">
+         <field name="name">res parther custom geolocation fields</field>
+         <field name="model">res.partner</field>
+         <field name="inherit_id" ref="base.view_partner_form"/>
+         <field name="priority">98</field>
+         <field name="arch" type="xml">
+
+          <xpath expr="//group/group[last()]" position="after">
+           <group>
+            <field name="tz"/>
+            <field name="tz_offset" string="Timezone Offset"/>
+            <field name="timezone_name"/>
+            <field name="city_geolocation"/>
+           </group>  
+          </xpath>
+
+         </field>
+     </record>   
+    
+</odoo>
